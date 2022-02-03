@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+
+import Header from './components/header'
+import Card from "./components/card";
 
 function App() {
+  const [state, setState] = useState([])
+
+  useEffect(async () => {
+   await axios("https://netology-api-marvel.herokuapp.com/characters")
+      .then(({ data }) => {
+        return setState(data);
+      })
+      .catch((err) => err);
+  }, []);
+
+
+    console.log("рeroesMarvel :", state);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="">
+      <Header />
+
+      <div className="container">
+        <h1 className="pt-3 pb-3">Персонажи Marvel</h1>
+        <div className="row">
+          {state.map((heroes) => {
+            return <Card key={heroes.id} character={heroes} />;
+          })}
+        </div>
+      </div>
     </div>
   );
 }
