@@ -15,13 +15,9 @@ function App() {
       .catch((err) => err);
   }, []);
 
-
-    console.log("рeroesMarvel :", state);
-
   return (
     <div className="">
       <Header />
-
       <div className="container">
         <h1 className="pt-3 pb-3">Персонажи Marvel</h1>
         <div className="row">
