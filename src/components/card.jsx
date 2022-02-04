@@ -1,5 +1,7 @@
 import React from "react";
 
+import Modalka from './modal'
+
 const Card = ({ character }) => {
   return (
     <>
@@ -21,7 +23,7 @@ const Card = ({ character }) => {
                     data-bs-target="#exampleModal"
                     className="btn btn-secondary btn-sm"
                   >
-                    Подробнее
+                    <Modalka />
                   </button>
                 </div>
               </div>
