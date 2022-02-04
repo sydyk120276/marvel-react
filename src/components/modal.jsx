@@ -7,9 +7,11 @@ function Modalka({ character }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const comiks = character.comics
+//   const comiks = character.comics
+//  let comiksName = comiks[0].name
 
-  console.log("comiks: ", comiks);
+//   console.log("comiks: ", comiks[0]);
+//   console.log("comiks: ", comiksName);
 
   return (
     <>
@@ -32,11 +34,6 @@ function Modalka({ character }) {
           <h5>Описание:</h5>
           {character.description}
           <h5>Комиксы:</h5>
-          {/* {<ul>
-            {comiks.map((el) => (
-              <li key={el.name}>{el.name}</li>
-            ))}
-          </ul>} */}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
