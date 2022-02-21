@@ -6,6 +6,7 @@ import Card from "./components/card";
 
 function App() {
   const [state, setState] = useState([])
+  const [name, setName] = useState('')
 
   useEffect(() => {
     axios("https://netology-api-marvel.herokuapp.com/characters")
@@ -15,13 +16,21 @@ function App() {
       .catch((err) => err);
   }, []);
 
+const handlerNameChange = (name) => {
+  setName(name)
+}
+
+const filterName = state.filter((nameHeroese) => {
+  return nameHeroese.name.toLowerCase().includes(name.toLowerCase())
+})
+
   return (
     <div className="">
-      <Header />
+      <Header onChange={handlerNameChange} />
       <div className="container">
         <h1 className="pt-3 pb-3">Персонажи Marvel</h1>
         <div className="row">
-          {state.map((heroes) => {
+          {filterName.map((heroes) => {
             return <Card key={heroes.id} character={heroes} />;
           })}
         </div>

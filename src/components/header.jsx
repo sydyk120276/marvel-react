@@ -1,6 +1,11 @@
 import React from 'react'
 
-const Header = () => {
+const Header = ({ onChange }) => {
+
+const handlerNameChange = (e) => {
+  onChange(e.target.value)
+}
+
   return (
     <>
       <nav className="navbar navbar-dark bg-dark">
@@ -17,6 +22,7 @@ const Header = () => {
               type="search"
               placeholder="Поиск"
               aria-label="Search"
+              onChange={handlerNameChange}
             />
             <button className="btn btn-outline-light" type="submit">
               Все
