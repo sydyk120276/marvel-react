@@ -7,6 +7,7 @@ import Card from "./components/card";
 function App() {
   const [state, setState] = useState([])
   const [name, setName] = useState('')
+  console.log(state)
 
   useEffect(() => {
     axios("https://netology-api-marvel.herokuapp.com/characters")

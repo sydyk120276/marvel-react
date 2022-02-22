@@ -13,6 +13,10 @@ function Modalka({ character }) {
 //   console.log("comiks: ", comiks[0]);
 //   console.log("comiks: ", comiksName);
 
+  // const string = character.comics.map((elem) => elem.name).join('');
+  // console.log('string', string)
+
+
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
